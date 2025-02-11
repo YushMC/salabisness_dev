@@ -1,0 +1,20 @@
+<button>
+    Arriba
+</button>
+
+<style lang="scss">
+    @use "/src/styles/sass/index.scss" as *;
+    button{
+        position: fixed;
+        right: 2%;
+        bottom: 5%;
+        @include padding-rectangular();
+        animation: respirationBoxShadow linear 5s infinite;
+        border-radius: $border-radius;
+        border: none;
+
+        @media screen and (max-width:800px) {
+            display: none;
+        }
+    }
+</style>
