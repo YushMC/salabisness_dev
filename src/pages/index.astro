@@ -1,19 +1,196 @@
 ---
-import FrontPage from '../components/global/FrontPage.astro';
-import Layout from '../layouts/Layout.astro';
+import FrontPage from "../components/global/FrontPage.astro";
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+export const prerender = true;
 ---
 
 <Layout title="Inicio">
-	<FrontPage></FrontPage>
+  <FrontPage />
+  <section class="features">
+    <h1>Características Principales</h1>
+
+    <div class="container_cards_functions">
+      <div class="card">
+        <h4>Perfiles de negocios personalizados.</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+      <div class="card">
+        <h4>Geolocalización inteligente</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+      <div class="card">
+        <h4>Herramientas de promoción</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+      <div class="card">
+        <h4>Venta de productos (opcional)</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+      <div class="card">
+        <h4>Reseñas y reputación</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+      <div class="card">
+        <h4>Notificaciones personalizadas</h4>
+        <img src="https://www.cuantocuestamiapp.com/img/app/intro.png" alt="" />
+      </div>
+    </div>
+  </section>
+  <section id="about">
+    <div>
+      <article>
+        <h2>¿Quienes Somos?</h2>
+        <p>
+          En Salabisness, nacemos con la misión de democratizar el acceso al
+          marketing digital para pequeños negocios. Somos un equipo de
+          profesionales apasionados por la tecnología y el desarrollo económico
+          local.
+        </p>
+      </article>
+      <aside>
+        <img
+          src="https://kinsta.com/wp-content/uploads/2021/11/about-us-page.png"
+          alt=""
+        />
+      </aside>
+    </div>
+
+    <div>
+      <article>
+        <h2>Nuestra visión:</h2>
+        <p>
+          Ser la plataforma líder en empoderar a emprendedores hispanohablantes,
+          conectando talento con oportunidades.
+        </p>
+      </article>
+      <aside>
+        <img
+          src="https://kinsta.com/wp-content/uploads/2021/11/about-us-page.png"
+          alt=""
+        />
+      </aside>
+    </div>
+    <div>
+      <article>
+        <h2>Valores:</h2>
+        <ul>
+          <li>✨ Comunidad: Fomentamos redes colaborativas.</li>
+          <li>✨ Innovación: Soluciones simples y efectivas.</li>
+          <li>✨ Transparencia: Claridad en cada proceso.</li>
+        </ul>
+      </article>
+      <aside>
+        <img
+          src="https://kinsta.com/wp-content/uploads/2021/11/about-us-page.png"
+          alt=""
+        />
+      </aside>
+    </div>
+  </section>
 </Layout>
 
 <style lang="scss">
-	@use "/src/styles/sass/index.scss" as *;
+  @use "/src/styles/sass/index.scss" as *;
 
-	
+  .features {
+    width: 80%;
+    margin: 2rem auto;
+    padding-inline: 10%;
+    padding-block: 2%;
+    background: $color-background-main;
+    border-radius: $border-radius;
+    animation: respirationBoxShadow linear 5s infinite;
+  }
 
-	
+  .container_cards_functions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .card {
+      width: 20rem;
+      @include flexColumn();
+      padding: 1%;
+      border: 2px solid transparent;
+      border-radius: $border-radius;
+
+      h4 {
+        width: fit-content;
+        text-wrap: balance !important;
+        padding-bottom: 0.5rem;
+        border-bottom: solid 2px $primary-color;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  #about {
+    width: 80%;
+    margin: 5rem auto;
+    @include flexColumn();
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      article {
+        width: 48%;
+        @include flexColumn();
+      }
+
+      aside {
+        width: 48%;
+        @include flexCenter();
+        background: $color-background-main;
+        padding: 2%;
+        border-radius: $border-radius;
+        animation: respirationBoxShadow linear 5s infinite;
+
+        img {
+          width: 100%;
+          border-radius: $border-radius;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #about {
+      div {
+        flex-direction: column;
+        gap: 2rem;
+
+        article {
+          width: 100%;
+        }
+        aside {
+          width: 100%;
+        }
+
+        &:nth-child(even) {
+          flex-direction: column;
+          gap: 2rem;
+        }
+      }
+    }
+  }
 </style>

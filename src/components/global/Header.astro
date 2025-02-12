@@ -1,147 +1,154 @@
 ---
+
 ---
 
 <header>
-    <label for="cerrarMenu" id="cerrarBoton">Cerarr</label>
-    <input type="checkbox" id="cerrarMenu">
-    <div class="container_header">
-        <picture>
-            <img src="https://cdn-icons-png.flaticon.com/512/3515/3515146.png" alt="">
-            
-        </picture>
-        <nav>
-            <ul>
-                <li>App</li>
-                <li>¿Quienes somos?</li>
-                <li>Terminos y Condiciones</li>
-                <li>Politica de Privacidad</li>
-            </ul>
-        </nav>
-        <button>Contacto</button>
-    </div>
+  <label for="cerrarMenu" id="cerrarBoton">Cerarr</label>
+  <input type="checkbox" id="cerrarMenu" />
+  <div class="container_header">
+    <picture>
+      <a href="/"
+        ><img
+          src="https://cdn-icons-png.flaticon.com/512/3515/3515146.png"
+          alt=""
+        /></a
+      >
+    </picture>
+    <nav>
+      <ul>
+        <li>
+          <a href="/#app">App</a>
+        </li>
+        <li>
+          <a href="#">¿Quienes somos?</a>
+        </li>
+        <li>
+          <a href="/terminos-y-condiciones">Términos y Condiciones</a>
+        </li>
+        <li><a href="/">Política de Privacidad</a></li>
+      </ul>
+    </nav>
+    <button>Contacto</button>
+  </div>
 </header>
 
 <style lang="scss">
-    @use "/src/styles/sass/index.scss" as *;
-    header{
-        width: 100%;
-        position: sticky;
-        top: 0;
-        left: 0;
-        height: fit-content;
-        @include flexCenter();
-        z-index: 100;
+  @use "/src/styles/sass/index.scss" as *;
+  header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: fit-content;
+    @include flexCenter();
+    z-index: 100;
+  }
+  .container_header {
+    width: fit-content;
+    margin-inline: 10%;
+    margin-block: 1rem;
+    background: $color-background-main;
+    border-radius: $border-radius;
+    backdrop-filter: blur($blur);
+    animation: respirationBoxShadow linear 5s infinite;
+    //border: solid 5px transparent;
+    @include padding-rectangular();
+    @include flexCenter();
+    flex-wrap: balance;
+    picture {
+      width: fit-content;
+      padding: 0;
+      @include flexBetween();
+
+      img {
+        width: 2rem;
+        @include aspect1-1();
+      }
     }
-    .container_header{
-        width: fit-content;
-        margin-inline: 10%;
-        margin-block: 1rem;
-        background: rgba(197, 197, 197, 0.2);
-        border-radius: $border-radius;
-        backdrop-filter: blur($blur);
-        animation: respirationBoxShadow linear 5s infinite;
-        //border: solid 5px transparent;
+  }
+  nav {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+    ul {
+      @include flexBetween();
+
+      li {
         @include padding-rectangular();
-        @include flexCenter();
-        flex-wrap: balance;
-        picture{
-            width:fit-content;
-            padding: 0;
-            @include flexBetween();
+        border: 2px solid transparent;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
 
-            img{
-                width: 2rem;
-                @include aspect1-1();
-            }
+        &.active,
+        &:hover {
+          border-bottom: 2px solid $secondary_color !important;
         }
+      }
     }
-    nav{
-        width: fit-content;
-        display: flex;
-        align-items: center;
-
-        ul{
-            @include flexBetween();
-
-            li{
-                @include padding-rectangular();
-                border: 2px solid transparent;
-                transition: all 0.3s ease-in-out;
-                cursor: pointer;
-
-                &.active,
-                &:hover{
-                    border-bottom: 2px solid $secondary_color !important;
-
-                }
-            }
-
-            
-        }
+  }
+  button {
+    border: none;
+    background: $primary-color;
+    color: #fff;
+    @include padding-rectangular();
+    border-radius: $border-radius;
+  }
+  #cerrarBoton,
+  #cerrarMenu {
+    display: none;
+  }
+  @media screen and (max-width: 600px) {
+    header {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      padding-inline: 10%;
+      padding-block: 2%;
+      justify-content: end;
     }
-    button{
-        border: none;
-        background: $primary-color;
-        color: #fff;
-        @include padding-rectangular();
-        border-radius: $border-radius;;
+    nav ul {
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      padding: 0;
     }
-    #cerrarBoton, #cerrarMenu{
-        display: none;
+    li {
+      width: 100%;
     }
-    @media screen and (max-width:600px) {
-        header{
-            width: 100%;
-            position: sticky;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            padding-inline: 10%;
-            padding-block: 2%;
-            justify-content: end;
-        }
-        nav ul {
-            width: 100%;
-            flex-direction: column;
-            align-items: start;
-            justify-content: start;
-            padding: 0;
-        }
-        li{
-            width: 100%;
-        }
-        .container_header{
-            top: 0;
-            left: 0;
-            position: fixed;
-            width: 70dvw;
-            height: 100dvh;
-            padding: 5% ;
-            flex-direction: column;
-            align-items: start;
-            justify-content: start;
-            margin: 0;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            transform: translateX(-500px);
-            transition: all 0.3s ease-in-out;
-        }
-        button{
-            width: 100%;
-        }
-        #cerrarBoton{
-            display: block;
-            width: fit-content;
-        }
-        #cerrarMenu{
-            top: 0;
-            right: 0;
-            display: none;
-        }
-        #cerrarMenu:checked ~ .container_header{
-            transform: translateX(0px);
-        }
+    .container_header {
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 70dvw;
+      height: 100dvh;
+      padding: 5%;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      margin: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      transform: translateX(-500px);
+      transition: all 0.3s ease-in-out;
     }
-
-    
+    button {
+      width: 100%;
+    }
+    #cerrarBoton {
+      display: block;
+      width: fit-content;
+    }
+    #cerrarMenu {
+      top: 0;
+      right: 0;
+      display: none;
+    }
+    #cerrarMenu:checked ~ .container_header {
+      transform: translateX(0px);
+    }
+  }
 </style>
