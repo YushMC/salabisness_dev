@@ -1,0 +1,71 @@
+<footer>
+  <div class="container_footer">
+    <a href="/"><h1>Salabisness</h1></a>
+    <ul>
+      <li><a href="/#app">App</a></li>
+      <li><a href="/#about">¿Quienes Somos?</a></li>
+      <li><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
+      <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
+    </ul>
+  </div>
+  <div class="container_copy">
+    <h5>Copy</h5>
+    <h5>
+      Powered by <a href="https://nuevaeradigital.mx/" target="_blank"
+        >Nueva Era Digital</a
+      >
+    </h5>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "/src/styles/sass/index.scss" as *;
+  footer {
+    padding: 2% 0;
+    background: $color-background-main;
+    border-radius: $border-radius;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-top: 2rem;
+    backdrop-filter: blur($blur);
+    animation: respirationBoxShadow linear 5s infinite;
+    @include flexColumn();
+
+    .container_footer {
+      @include flexBetween();
+      flex-wrap: wrap;
+      padding-inline: 10%;
+
+      ul {
+        width: 50rem;
+        @include flexBetween();
+        flex-wrap: wrap;
+        li,
+        a {
+          transition: all 0.3s linear;
+        }
+
+        li:not(:hover) a {
+          color: #919191;
+        }
+      }
+    }
+
+    .container_copy {
+      width: 90%;
+      margin-inline: auto;
+      @include flexBetween();
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: solid 2px $primary-color;
+
+      h5 {
+        font-size: 1rem;
+        a {
+          color: $secondary-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+</style>

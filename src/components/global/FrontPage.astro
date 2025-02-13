@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import appImage from "../../assets/gui/mix.png";
 ---
 
@@ -13,16 +13,16 @@ import appImage from "../../assets/gui/mix.png";
     </p>
     <div class="container_imgs">
       <button>
-        <img src="/public/applestore-es.png" alt="" />
+        <img src="/applestore-es.png" alt="" />
       </button>
       <button>
-        <img src="/public/disponible-apk.svg" alt="" />
+        <img src="/disponible-apk.svg" alt="" />
       </button>
     </div>
   </div>
   <picture>
-    <img
-      src="/public/gui/mix.png"
+    <Image
+      src={appImage}
       alt="Salabisness App"
       loading="lazy"
       decoding="async"

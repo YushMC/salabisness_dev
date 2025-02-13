@@ -2,7 +2,7 @@
 const { title } = Astro.props;
 
 import Header from "../components/global/Header.astro";
-
+import Footer from "../components/global/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 ---
 
@@ -23,6 +23,8 @@ import { ClientRouter } from "astro:transitions";
     <main>
       <Header />
       <slot />
+
+      <Footer />
     </main>
   </body>
 </html>

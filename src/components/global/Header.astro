@@ -3,8 +3,12 @@
 ---
 
 <header>
-  <label for="cerrarMenu" id="cerrarBoton">Cerarr</label>
   <input type="checkbox" id="cerrarMenu" />
+  <label for="cerrarMenu" id="cerrarBoton" class="menu-toggle">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+  </label>
   <div class="container_header">
     <picture>
       <a href="/"
@@ -20,12 +24,12 @@
           <a href="/#app">App</a>
         </li>
         <li>
-          <a href="#">¿Quienes somos?</a>
+          <a href="/#about">¿Quienes somos?</a>
         </li>
         <li>
           <a href="/terminos-y-condiciones">Términos y Condiciones</a>
         </li>
-        <li><a href="/">Política de Privacidad</a></li>
+        <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
       </ul>
     </nav>
     <button>Contacto</button>
@@ -94,9 +98,12 @@
     @include padding-rectangular();
     border-radius: $border-radius;
   }
-  #cerrarBoton,
-  #cerrarMenu {
-    display: none;
+
+  @media screen and (min-width: 601px) {
+    #cerrarBoton,
+    #cerrarMenu {
+      display: none;
+    }
   }
   @media screen and (max-width: 600px) {
     header {
@@ -139,13 +146,48 @@
       width: 100%;
     }
     #cerrarBoton {
-      display: block;
-      width: fit-content;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      padding: 5%;
+      background: $color-background-main;
+      border-radius: $border-radius;
+      animation: respirationBoxShadow linear 5s infinite;
+
+      .bar {
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      /* Animación para cambiar a la "X" cuando se hace clic */
+
+      /* Animación para cambiar a la "X" cuando se hace clic */
     }
     #cerrarMenu {
       top: 0;
       right: 0;
       display: none;
+    }
+    #cerrarMenu:checked ~ #cerrarBoton .bar1 {
+      transform: rotate(45deg) translateY(5px) scaleX(2) translateX(2px);
+    }
+    #cerrarMenu:checked ~ #cerrarBoton .bar2 {
+      opacity: 0;
+    }
+    #cerrarMenu:checked ~ #cerrarBoton .bar3 {
+      transform: rotate(-50deg) translateY(-6px) translateX(5px) scaleX(2);
     }
     #cerrarMenu:checked ~ .container_header {
       transform: translateX(0px);
